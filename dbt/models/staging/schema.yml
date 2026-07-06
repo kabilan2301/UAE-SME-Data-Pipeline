@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: raw_zone
+    database: uae-sme-analytics-pipeline
+    schema: raw_zone
+    tables:
+      - name: monthly_kpis
+      - name: sme_profiles
+
+models:
+  - name: stg_monthly_kpis
+    description: "Cleaned monthly SME KPIs"
+    columns:
+      - name: sme_id
+        tests:
+          - not_null
+
+  - name: stg_sme_profiles
+    description: "Cleaned SME company profiles"
+    columns:
+      - name: sme_id
+        tests:
+          - not_null
+          - unique
+
+  - name: fct_sme_performance
+    description: "Fact table combining performance and company data"
