@@ -23,6 +23,10 @@ BigQuery (analytics)
 ->
 Power BI Dashboard
 
+
+file path: docs/architecture_diagram.drawio.png
+
+
 ## Technologies Used
 
 | Component       | Technology                |
