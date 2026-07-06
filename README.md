@@ -8,19 +8,19 @@ An end-to-end data pipeline that ingests, transforms, and visualizes UAE SME dat
 
 Cloud Scheduler (6 AM UAE)
 │
->
+->
 Cloud Function (load_sme_data)
 │
->
+->
 BigQuery (raw_zone)
 │
->
+->
 dbt Transformations
 │
->
+->
 BigQuery (analytics)
 │
->
+->
 Power BI Dashboard
 
 ## Technologies Used
