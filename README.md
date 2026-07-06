@@ -8,19 +8,19 @@ An end-to-end data pipeline that ingests, transforms, and visualizes UAE SME dat
 
 Cloud Scheduler (6 AM UAE)
 │
-▼
+>
 Cloud Function (load_sme_data)
 │
-▼
+>
 BigQuery (raw_zone)
 │
-▼
+>
 dbt Transformations
 │
-▼
+>
 BigQuery (analytics)
 │
-▼
+>
 Power BI Dashboard
 
 ## Technologies Used
@@ -64,7 +64,7 @@ The project uses the following IAM roles for secure access:
 | `roles/bigquery.jobUser`    | Create and run BigQuery load jobs                   | Service Account                                               |
 | `roles/run.invoker`         | Allow Cloud Scheduler to trigger the Cloud Function | Service Account (or `allUsers` via `--allow-unauthenticated`) |
 
-### Why This Matters
+### Important
 
 Without these IAM bindings, the Cloud Function would throw **permission denied** errors when trying to write to BigQuery or when Cloud Scheduler tried to trigger it. These roles enable secure, automated data ingestion.
 
@@ -83,7 +83,7 @@ The pipeline is fully automated using **Cloud Scheduler** to run the data ingest
 | **URL**            | Cloud Function HTTP endpoint: ` https://load-revenue-fn-v3-xdiugtyo2q-uc.a.run.app` |
 | **Authentication** | `--allow-unauthenticated` (simplified for testing)                             |
 
-### How It Works
+### Project Flow
 
 1. Cloud Scheduler sends an HTTP request to the Cloud Function URL at 6 AM daily
 2. The Cloud Function downloads fresh Excel files from GitHub
